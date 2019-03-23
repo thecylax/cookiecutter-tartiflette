@@ -1,0 +1,2 @@
+tartiflette-aiohttp
+aiohttp-devtools==0.12

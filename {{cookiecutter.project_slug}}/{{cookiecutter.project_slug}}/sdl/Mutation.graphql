@@ -1,0 +1,9 @@
+type Mutation {
+  updateUser(input: UserInput!): User
+}
+
+input UserInput {
+  id: Int!
+  name: String
+  email: String
+}
