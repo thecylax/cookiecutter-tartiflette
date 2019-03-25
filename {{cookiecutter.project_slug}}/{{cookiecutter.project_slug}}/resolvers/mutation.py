@@ -6,7 +6,7 @@ from {{cookiecutter.project_slug}}.data import USERS
 
 
 @Resolver('Mutation.updateUser')
-async def resolver_recipe(parent, args, ctx, info):
+async def resolver_user(parent, args, ctx, info):
     user_input = args['input']
 
     for index, user in enumerate(USERS):

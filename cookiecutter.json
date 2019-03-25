@@ -1,7 +1,7 @@
 {
     "full_name": "Robson Cardoso dos Santos",
     "email": "cardoso.rcs@gmail.com",
-    "project_slug": "tartiflette-server",
+    "project_slug": "tartiflette_server",
     "project_short_description": "Simple tartiflette GraphQL server",
     "github_username": "thecylax",
     "version": "0.1.0"

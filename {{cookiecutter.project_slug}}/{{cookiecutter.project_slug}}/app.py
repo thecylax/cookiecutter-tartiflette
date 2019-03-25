@@ -11,18 +11,14 @@ engine = Engine(
     sdl=settings.TARTIFLETTE_SDL_PATH,
     modules=settings.TARTIFLETTE_MODULES,
 )
-
+app = web.Application()
+registered_handlers = register_graphql_handlers(
+    app=app, engine=engine, **settings.TARTIFLETTE_CONFIG
+)
 
 def run():
-    app = web.Application()
+    web.run_app(registered_handlers)
 
-    web.run_app(
-        register_graphql_handlers(
-            app=app,
-            engine=engine,
-            subscription_ws_endpoint="/ws",
-            executor_http_endpoint='/graphql',
-            executor_http_methods=['POST'],
-            graphiql_enabled=True
-        )
-    )
+# For liveroload only
+async def create_app():
+    return registered_handlers
