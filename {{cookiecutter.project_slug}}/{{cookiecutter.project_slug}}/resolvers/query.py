@@ -12,7 +12,7 @@ async def resolver_users(parent, args, ctx, info):
 
 @Resolver("Query.user")
 async def resolver_user(parent, args, ctx, info):
-    user = [r for r in USERS if r["id"] == int(args["id"])]
+    user = [r for r in USERS if r["id"] == args["id"]]
 
     if not user:
         return None
