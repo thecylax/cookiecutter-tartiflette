@@ -18,6 +18,6 @@ class Settings(object):
         'graphiql_enabled': True,
         'graphiql_options': {
             'endpoint': '/graphiql',
-            'default_query': '# Tartiflette Graphql Server\n\n',
+            'default_query': '# {}\n\n'.format('{{cookiecutter.project_short_description}}'),
         }
     }
