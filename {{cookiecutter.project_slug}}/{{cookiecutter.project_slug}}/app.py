@@ -1,19 +1,21 @@
 import os
-from aiohttp import web
 
-from tartiflette import Engine
+from aiohttp import web
 from tartiflette_aiohttp import register_graphql_handlers
 
 from {{cookiecutter.project_slug}}.settings import Settings
 
 settings = Settings()
-engine = Engine(
-    sdl=settings.TARTIFLETTE_SDL_PATH,
-    modules=settings.TARTIFLETTE_MODULES,
-)
+# engine = Engine(
+#     sdl=settings.TARTIFLETTE_SDL_PATH,
+#     modules=settings.TARTIFLETTE_MODULES,
+# )
 app = web.Application()
 registered_handlers = register_graphql_handlers(
-    app=app, engine=engine, **settings.TARTIFLETTE_CONFIG
+    app=app,
+    engine_sdl=settings.TARTIFLETTE_SDL_PATH,
+    engine_modules=settings.TARTIFLETTE_MODULES,
+    **settings.TARTIFLETTE_CONFIG
 )
 
 def run():
